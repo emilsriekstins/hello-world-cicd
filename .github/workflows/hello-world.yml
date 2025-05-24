@@ -35,11 +35,13 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
   deploy:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Print output
         run: echo Deploying application
   test:
+    needs: [deploy]
     runs-on: ubuntu-latest
     steps:
       - name: Print output
